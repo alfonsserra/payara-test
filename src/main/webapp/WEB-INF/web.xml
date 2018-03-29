@@ -10,10 +10,10 @@
     <data-source>
         <name>java:global/DerbyDataSource</name>
         <class-name>org.apache.derby.jdbc.ClientDriver</class-name>
-        <server-name>localhost</server-name>
+        <server-name>${ENV=DOCKER_HOST}</server-name>
         <port-number>1527</port-number>
-        <url>jdbc:derby://localhost:1527/systelab</url>
-        <user>systelab</user>
-        <password>systelab</password>
+        <url>jdbc:derby://${ENV=DOCKER_HOST}:1527/${ENV=DB_NAME}</url>
+        <user>${ENV=DB_USER}</user>
+        <password>${ENV=DB_PASSWORD}</password>
     </data-source>
 </web-app>
