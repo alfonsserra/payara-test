@@ -25,7 +25,7 @@ MAINTAINER Alfons Serra "alfonsoserra@gmail.com"
 RUN wget -O /opt/payara/deployments/database-connector.jar http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar
 
 # Sets database connection environment variables
-ENV DB_HOST 127.0.0.1
+ENV DB_HOST db
 ENV DB_PORT 3306
 ENV DB_NAME systelab
 ENV DB_USER systelab
