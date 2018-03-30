@@ -15,5 +15,9 @@
         <database-name>${ENV=DB_NAME}</database-name>
         <user>${ENV=DB_USER}</user>
         <password>${ENV=DB_PASSWORD}</password>
+        <property>
+            <name>UseSSL</name>
+            <value>false</value>
+        </property>
     </data-source>
 </web-app>
