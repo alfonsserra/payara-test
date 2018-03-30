@@ -8,12 +8,25 @@
         <session-timeout>30</session-timeout>
     </session-config>
     <data-source>
-        <name>java:global/DerbyDataSource</name>
-        <class-name>org.apache.derby.jdbc.ClientDriver</class-name>
-        <server-name>${ENV=DOCKER_HOST}</server-name>
-        <port-number>1527</port-number>
-        <url>jdbc:derby://${ENV=DOCKER_HOST}:1527/${ENV=DB_NAME}</url>
+        <name>java:global/PatientDataSource</name>
+        <class-name>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</class-name>
+        <server-name>${ENV=DB_HOST}</server-name>
+        <port-number>3306</port-number>
+        <database-name>${ENV=DB_NAME}</database-name>
         <user>${ENV=DB_USER}</user>
         <password>${ENV=DB_PASSWORD}</password>
+        <!-- Example of how to use a Payara specific custom connection pool setting -->
+        <property>
+            <name>fish.payara.slow-query-threshold-in-seconds</name>
+            <value>5</value>
+        </property>
+        <property>
+            <name>fish.payara.log-jdbc-calls</name>
+            <value>true</value>
+        </property>
+        <property>
+            <name>fish.payara.is-connection-validation-required</name>
+            <value>true</value>
+        </property>
     </data-source>
 </web-app>

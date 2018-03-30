@@ -28,13 +28,6 @@ In order to install the dependencies you must run:
 mvn install
 ```
 
-## Standard Configuration
-
-Run the SQL script on an Apache Derby database that is installed on the host machine to load the schema.  Then
-modify the Dockerfile environment variables in order to connect to the database from within the container.
-
-Build the sources for the PatientService using Maven to create the *PatientService-1.0.war* file.
-
 ### Build:
 
 ```bash
@@ -45,6 +38,12 @@ docker build -t patientservice:1.0 .
 
 ```bash
 docker run -d -p 8080:8080 --name patientservice patientservice:1.0
+```
+
+As you need a MySQL server, you can run it in a container with the following command:
+
+```bash
+docker run  -e MYSQL_ROOT_PASSWORD=systelab -e MYSQL_DATABASE=systelab -e MYSQL_USER=systelab -e MYSQL_PASSWORD=systelab -p 3306:3306 mysql
 ```
 
 [git]: https://git-scm.com/
