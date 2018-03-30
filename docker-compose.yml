@@ -1,15 +1,17 @@
 version: "2"
 services:
   db:
+    container_name: db
     image: mysql:latest
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=supersecret
       - MYSQL_DATABASE=systelab
       - MYSQL_USER=systelab
       - MYSQL_PASSWORD=systelab
   backend1:
+    container_name: backend
     image: patientservice:1.0
     ports:
       - "8080:8080"
