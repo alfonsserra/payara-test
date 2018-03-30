@@ -37,14 +37,17 @@ docker build -t patientservice:1.0 .
 ### Run:
 
 ```bash
-docker run -d -p 8080:8080 --name patientservice patientservice:1.0
+docker run -d --link db -e DB_HOST=db -p 8080:8080 --name patientservice patientservice:1.0
 ```
 
 As you need a MySQL server, you can run it in a container with the following command:
 
 ```bash
-docker run  -e MYSQL_ROOT_PASSWORD=systelab -e MYSQL_DATABASE=systelab -e MYSQL_USER=systelab -e MYSQL_PASSWORD=systelab -p 3306:3306 mysql
+docker run -d --name db -e MYSQL_ROOT_PASSWORD=systelab -e MYSQL_DATABASE=systelab -e MYSQL_USER=systelab -e MYSQL_PASSWORD=systelab -p 3306:3306 mysql
 ```
+
+Once everything is started, browse to: http://localhost:8080/PatientService-1.0/rest/patient
+
 
 [git]: https://git-scm.com/
 [maven]: https://maven.apache.org/download.cgi

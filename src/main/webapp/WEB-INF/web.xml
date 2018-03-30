@@ -15,18 +15,5 @@
         <database-name>${ENV=DB_NAME}</database-name>
         <user>${ENV=DB_USER}</user>
         <password>${ENV=DB_PASSWORD}</password>
-        <!-- Example of how to use a Payara specific custom connection pool setting -->
-        <property>
-            <name>fish.payara.slow-query-threshold-in-seconds</name>
-            <value>5</value>
-        </property>
-        <property>
-            <name>fish.payara.log-jdbc-calls</name>
-            <value>true</value>
-        </property>
-        <property>
-            <name>fish.payara.is-connection-validation-required</name>
-            <value>true</value>
-        </property>
     </data-source>
 </web-app>
